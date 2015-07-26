@@ -2,3 +2,6 @@ asdadasd
 asdadasda
 adadasd
 adadas
+
+//百度图片异步抓取
+http://image.baidu.com/search/avatarjson?tn=resultjsonavatarnew&word=%E9%A3%8E%E6%99%AF
