@@ -8,8 +8,37 @@
 <body>
 	<div class="container">
 		<div><input type="text" ng-init="name='world'" ng-model="name" /></div>
-		<div >hello, <span ng-bind="name"></span></div>
+		<div id="calDone"></div>
+		<div id="calNumber"></div>	
+		<div id="calTime"></div>
+		<div id="calIndex"></div>
+		<div id="calTimeCount"></div>
 	</div>
 	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript">
+		var startIndex=1,maxIndex=10000000000000,count=0,time=0;
+		function cal(){
+			var _time=new Date().getTime();
+			var _index=startIndex+"";
+			while(_index.indexOf("1")>-1){
+				_index=_index.replace("1","");
+				count++;
+			}
+			startIndex++;
+
+			document.getElementById('calNumber').innerHTML=count;
+			time+=(new Date().getTime()-_time);
+			document.getElementById('calTime').innerHTML=new Date().getTime()-_time;
+			document.getElementById('calIndex').innerHTML=startIndex;
+			document.getElementById('calTimeCount').innerHTML=time;
+			if(startIndex<=maxIndex) {
+				document.getElementById('calDone').innerHTML="正在计算...";
+				setTimeout(cal,10);
+			}else{
+				document.getElementById('calDone').innerHTML="计算结束";
+			}
+		}
+		window.onload=cal;
+	</script>
 </body>
 </html>

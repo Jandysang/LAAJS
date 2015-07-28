@@ -1,12 +1,37 @@
 一、开始使用
 	1、ng-app
-	  ①、在任何html的元素上加上ng-app属性就可以了
+	  a、在任何html的元素上加上ng-app属性就可以了
 	 AngularJS会在domReady时自动执行初始化
 	 	声明模型：ng-model，结果输出{{}}
 	 	ng-bind
 	 	ng-bind-html (1.2之前是ng-bind-html-unsafe)
-	  ②、如果需要手动初始化AngularJS，手动调用bootstrap方法来初始化
+	  	（有demo）
+	  b、如果需要手动初始化AngularJS，手动调用bootstrap方法来初始化
 	 	
 	 	window.onload=function(){
 	 		angular.bootstrap(document);
 	 	}
+
+	 2、基于dom的模板
+	 	a、Dirty-Check（angular.equals）
+	 		1)、(值) ===
+	 		2)、(对象) typeof ===  所有属性===
+	 		3)、都是NaN
+	 		忽略function和$
+	 		日期比较 转为getTime()时间戳;
+
+	 		避免死循环 （10次强制渲染）
+	 	b、双向绑定
+	 		数据改变自动更新界面
+	 		界面交互自动更新数据
+	 		（数据->视图）（ 视图->数据 数据->新视图）
+	 	c、Directve（指令）
+	 		赋予html新的能力
+			a、之前讲到的 ng-init ng-if {{}}都是指令
+			b、E(Element),A(Attribute、default-value),C(ClassName),M(Comment)
+			c、自定义（通过自定义将展现和行为封装，成组件）
+			(有demo)
+	 	d、Complie/link
+	 		分两步编译模板
+	 		ng-repeat(典型示例)
+	 	e、filter
