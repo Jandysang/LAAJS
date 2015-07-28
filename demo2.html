@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo2.html</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+		<div><input type="text" ng-init="name='world'" ng-model="name" /></div>
+		<div>hello,{{name}}</div>
+		<div ng-if="name=='image'">
+			<img src="image/ly.jpg" />
+		</div>
+		<!-- 看一下控制台 -->
+	</div>
+	<script type="text/javascript" src="js/angular.js"></script>
+</body>
+</html>

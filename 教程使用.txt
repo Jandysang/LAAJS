@@ -1,0 +1,12 @@
+一、开始使用
+	1、ng-app
+	  ①、在任何html的元素上加上ng-app属性就可以了
+	 AngularJS会在domReady时自动执行初始化
+	 	声明模型：ng-model，结果输出{{}}
+	 	ng-bind
+	 	ng-bind-html (1.2之前是ng-bind-html-unsafe)
+	  ②、如果需要手动初始化AngularJS，手动调用bootstrap方法来初始化
+	 	
+	 	window.onload=function(){
+	 		angular.bootstrap(document);
+	 	}
