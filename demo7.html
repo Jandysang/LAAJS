@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo7.html</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+		<div ng-init="ps=[{name:'John',phone:'13815154425'},{
+			name:'Tom',phone:'15602531007'},{
+			name:'Haoyun',phone:'13910733521'},{
+			name:'Louis',phone:'400-777-777'},{
+			name:'Jack',phone:'18932336980'}]">
+			查询: <input type="text" ng-init="searchText=''" ng-model="searchText" />
+			<table ng-if="searchText!=''" id="searchTextResults">
+				<tr>
+					<th>Name</th>
+					<th>Phone</th>
+				</tr>
+				<tr ng-repeat='p in ps | filter:searchText'>
+					<td>{{p.name}}</td>
+					<td>{{p.phone}}</td>
+				</tr>
+			</table>
+			<!-- 效率、渲染、顺序 -->
+			<hr>
+			匹配对象所有元素：<input type="text" ng-model="search.$" />
+			仅匹配名称： <input type="text" ng-model="search.name" />
+			仅匹配电话： <input type="text" ng-model="search.phone" />
+			<!-- &&的关系 -->
+			<table id="searchObjResults">
+				<tr>
+					<th>Name</th>
+					<th>Phone</th>
+				</tr>
+				<tr ng-repeat='p in ps | filter:search'>
+					<td>{{p.name}}</td>
+					<td>{{p.phone}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	
+</body>
+</html>

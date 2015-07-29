@@ -8,6 +8,7 @@
 <body>
 	<div class="container">
 		<div><input type="text" ng-init="name='world'" ng-model="name" /></div>
+		<div>hello,{{name}}!</div>
 		<div id="calDone"></div>
 		<div id="calNumber"></div>	
 		<div id="calTime"></div>
@@ -16,7 +17,7 @@
 	</div>
 	<script type="text/javascript" src="js/angular.js"></script>
 	<script type="text/javascript">
-		var startIndex=1,maxIndex=10000000000000,count=0,time=0;
+		var startIndex=1,maxIndex=10000000,count=0,time=0;
 		function cal(){
 			var _time=new Date().getTime();
 			var _index=startIndex+"";

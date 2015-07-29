@@ -35,3 +35,8 @@
 	 		分两步编译模板
 	 		ng-repeat(典型示例)
 	 	e、filter
+	 		语法:{{ experssion| fifter}} 或{{ experssion| fifter:agument1 | filter1}}
+	 		自定义
+	 3、model($scope)
+	 	$scope所有属性、$scope.$watch、$scope.$apply
+	 4、contraller
