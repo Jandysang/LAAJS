@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo1.html</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+		<div>hello,{{name}}!</div>
+		<div id="calDone"></div>
+		<div id="calNumber"></div>	
+		<div id="calTime"></div>
+		<div id="calIndex"></div>
+		<div id="calTimeCount"></div>
+		<div id="calRS"></div>
+	</div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript">
+		var startIndex=1,maxIndex=10000000,count=0,time=0;
+		function cal(){
+			var _time=new Date().getTime();
+			var _index=startIndex+"";
+			while(_index.indexOf("1")>-1){
+				_index=_index.replace("1","");
+				count++;
+			}
+			startIndex++;
+
+			document.getElementById('calNumber').innerHTML=count;
+			time+=(new Date().getTime()-_time);
+			document.getElementById('calTime').innerHTML=new Date().getTime()-_time;
+			document.getElementById('calIndex').innerHTML=startIndex;
+			document.getElementById('calTimeCount').innerHTML=time;
+			if(startIndex<=maxIndex) {
+				document.getElementById('calDone').innerHTML="正在计算...";
+				setTimeout(cal,10);
+			}else{
+				document.getElementById('calDone').innerHTML="计算结束";
+			}
+		}
+		window.onload=cal;
+
+		function rs(value){
+			if(typeof(value)!=='number') return;
+			var n=0,flag=true;
+			while(value%10!=1 && flag){
+				flag=(value%10==0 ||(value%10==1 && value==1));
+				n++;
+				value=value/10;
+			}
+			if(!flag) return;
+		    return (n*Math.pow(10,(n+1)))/100+1;	
+		}
+		var s=window.onload;
+		window.onload=function(){
+			s();
+			document.getElementById('calRS').innerHTML=rs(100000000000);
+		}
+	</script>
+</body>
+</html>

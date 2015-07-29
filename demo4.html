@@ -2,44 +2,16 @@
 <html ng-app>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<title>AngularJS--demo1.html</title>
+	<title>AngularJS--demo4.html</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 </head>
 <body>
 	<div class="container">
-		<div><input type="text" ng-init="name='world'" ng-model="name" /></div>
-		<div>hello,{{name}}!</div>
-		<div id="calDone"></div>
-		<div id="calNumber"></div>	
-		<div id="calTime"></div>
-		<div id="calIndex"></div>
-		<div id="calTimeCount"></div>
+		<div><input type="checkbox" ng-init="checked=true" ng-model="checked" /></div>
+		当checkbox被选中时,显示：
+		<span ng-if="checked">如果checkbox没有被选中，我就会消失！</span>
 	</div>
 	<script type="text/javascript" src="js/angular.js"></script>
-	<script type="text/javascript">
-		var startIndex=1,maxIndex=10000000,count=0,time=0;
-		function cal(){
-			var _time=new Date().getTime();
-			var _index=startIndex+"";
-			while(_index.indexOf("1")>-1){
-				_index=_index.replace("1","");
-				count++;
-			}
-			startIndex++;
 
-			document.getElementById('calNumber').innerHTML=count;
-			time+=(new Date().getTime()-_time);
-			document.getElementById('calTime').innerHTML=new Date().getTime()-_time;
-			document.getElementById('calIndex').innerHTML=startIndex;
-			document.getElementById('calTimeCount').innerHTML=time;
-			if(startIndex<=maxIndex) {
-				document.getElementById('calDone').innerHTML="正在计算...";
-				setTimeout(cal,10);
-			}else{
-				document.getElementById('calDone').innerHTML="计算结束";
-			}
-		}
-		window.onload=cal;
-	</script>
 </body>
 </html>

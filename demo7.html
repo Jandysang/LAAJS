@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="container">
-		<div ng-init="ps=[{name:'John',phone:'13815154425'},{
+		<div ng-init="peoples=[{name:'John',phone:'13815154425'},{
 			name:'Tom',phone:'15602531007'},{
 			name:'Haoyun',phone:'13910733521'},{
 			name:'Louis',phone:'400-777-777'},{
@@ -18,9 +18,9 @@
 					<th>Name</th>
 					<th>Phone</th>
 				</tr>
-				<tr ng-repeat='p in ps | filter:searchText'>
-					<td>{{p.name}}</td>
-					<td>{{p.phone}}</td>
+				<tr ng-repeat='people in peoples | filter:searchText'>
+					<td>{{people.name}}</td>
+					<td>{{people.phone}}</td>
 				</tr>
 			</table>
 			<!-- 效率、渲染、顺序 -->
@@ -34,9 +34,9 @@
 					<th>Name</th>
 					<th>Phone</th>
 				</tr>
-				<tr ng-repeat='p in ps | filter:search'>
-					<td>{{p.name}}</td>
-					<td>{{p.phone}}</td>
+				<tr ng-repeat='people in peoples | filter:search'>
+					<td>{{people.name}}</td>
+					<td>{{people.phone}}</td>
 				</tr>
 			</table>
 		</div>
