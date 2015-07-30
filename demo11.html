@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo11.html</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+		<div ng-controller='myCtrl'>
+			<div class=>
+				<input type="text" ng-model="keyword"/>
+				<input type="button" class="btn-primary" value='搜索' ng-click='fetch()' />
+			</div>
+			<hr>
+			<div class='col-xs-12'>
+				<div class="col-xs-4"  ng-repeat='photo in photos'>
+					<img style="width:100%;"ng-src="{{photo.img}}"/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	
+	<script type="text/javascript">
+		angular.module("myApp",[])
+		.controller("myCtrl",function($scope,$http){
+			$scope.photos=[];
+			$scope.keyword="风景";
+			$scope.fetch=function(){
+				$http.jsonp('http://baike.so.com/resource/other/bkeditor/server/getImgJson.php?q='+$scope.keyword+"&callback=JSON_CALLBACK")
+				.success(function(data){
+					$scope.photos=data.list.slice(0,20);
+				});
+			}
+		});
+	</script>
+</body>
+</html>

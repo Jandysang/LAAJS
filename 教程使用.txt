@@ -41,3 +41,5 @@
 	 	$scope所有属性、$scope.$watch、$scope.$apply
 四、contraller
 五、依赖注入
+	1、fn.toString();
+	2、会被压缩坏，(数组,google压缩工具,$inject？);

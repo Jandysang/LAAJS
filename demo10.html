@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo10.html</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+		<div ng-controller='myCtrl'>
+			hello,{{name}}!
+			<button ng-click='change()'>click me</button>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	
+	<script type="text/javascript">
+		angular.module("myApp",[])
+		.controller("myCtrl",function($scope,$timeout){
+				$scope.name="world";
+				$scope.change=function(){
+					$timeout(function() {
+						$scope.name='kitty';
+					}, 1000);
+				}
+				$scope.$watch('name',function(){
+					console.log($scope.name);
+				});
+		});
+		/*angular.module("myApp",[])
+		.controller("myCtrl",['$scope','$timeout',function(a,b){
+				a.name="world";
+				a.change=function(){
+					b(function() {
+						a.name='kitty';
+					}, 1000);
+				}
+				a.$watch('name',function(){
+					console.log(a.name);
+				});
+		}]);*/
+	</script>
+</body>
+</html>
