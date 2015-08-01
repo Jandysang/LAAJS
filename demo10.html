@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="js/angular.js"></script>
 	
 	<script type="text/javascript">
-		angular.module("myApp",[])
+		/*angular.module("myApp",[])
 		.controller("myCtrl",function($scope,$timeout){
 				$scope.name="world";
 				$scope.change=function(){
@@ -26,7 +26,7 @@
 				$scope.$watch('name',function(){
 					console.log($scope.name);
 				});
-		});
+		});*/
 		/*angular.module("myApp",[])
 		.controller("myCtrl",['$scope','$timeout',function(a,b){
 				a.name="world";
@@ -39,6 +39,20 @@
 					console.log(a.name);
 				});
 		}]);*/
+		var myCtrlFn=function(a,b){
+			a.name="world";
+			a.change=function(){
+				b(function() {
+					a.name='kitty';
+				}, 1000);
+			}
+			a.$watch('name',function(){
+				console.log(a.name);
+			});
+		}
+		myCtrlFn.$inject=['$scope','$timeout'];
+		angular.module("myApp",[])
+		.controller("myCtrl",myCtrlFn);
 	</script>
 </body>
 </html>

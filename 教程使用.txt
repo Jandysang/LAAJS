@@ -42,4 +42,11 @@
 四、contraller
 五、依赖注入
 	1、fn.toString();
-	2、会被压缩坏，(数组,google压缩工具,$inject？);
+	2、会被压缩坏，(数组,$inject,google压缩工具);
+	3、借鉴其他语言的好处，严格分层
+六、Service
+	//(XHR Jsonp Worker DB...)
+	1、获取数据
+	2、通过同步和异步的两种方式
+	3、可访问的模块被限制（如 $scope）
+	
