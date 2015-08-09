@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo4.2.html</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+			<div ng-controller="myCtrl1">
+				<p>hello,{{name}}!</p>
+			</div>
+			<div ng-controller="myCtrl2">
+				<ul>
+					<li ng-repeat="name in names">
+						{{name}} form {{department}}
+					</li>
+				</ul>
+			</div>
+	</div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	
+	<script type="text/javascript">
+        
+        function myCtrl1($scope,$rootScope){
+        	$scope.name="world";
+        	$rootScope.department="邮轮";
+        }
+        
+        function myCtrl2($scope){
+        	$scope.names=["syt4528","sssss","yyyyyyy","ttttttt",'sytsytsyt'];
+        }
+		var myApp=angular.module("myApp",[]);
+		myApp
+		.controller("myCtrl1",myCtrl1)
+		.controller("myCtrl2",myCtrl2);
+	</script>
+</body>
+</html>

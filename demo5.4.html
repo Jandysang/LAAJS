@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo5.4.html</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+		<div ng-controller="myCtrl">
+			<div ng-class="{'text-danger':isError,'text-warning':isWarning}">{{messageText}}</div>
+			<button class="btn btn-default" ng-click="showError()">测试错误的结果</button>
+			<button class="btn btn-default" ng-click="showWarning()">测试警告的结果</button>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript">
+		
+	
+		var myApp=angular.module("myApp",[]);
+		myApp.controller("myCtrl",function($scope){
+			$scope.isError=false;
+			$scope.isWarning=false;
+			$scope.showError=function(){
+				$scope.messageText="这是一个错误的提示信息";
+				$scope.isError=true;
+				$scope.isWarning=false;
+			}
+
+			$scope.showWarning=function(){
+				$scope.messageText="这是一个警告的提示信息";
+				$scope.isError=false;
+				$scope.isWarning=true;
+			}
+		});
+	</script>
+</body>
+</html>

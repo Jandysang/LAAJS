@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo2.1.html</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+		<input type="text" ng-model="name" />
+		<p>hello,{{name}}!</p>
+	</div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<!-- angular启动之后找ng-app
+		然后发现ng-model
+		将ng-model 挂在$rootscope
+		然后双向数据绑定机制来处理
+	 -->
+</body>
+</html>

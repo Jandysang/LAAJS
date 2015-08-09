@@ -1,0 +1,38 @@
+调试工具不讲
+第三方插件不讲
+
+一、为什么用MVC？
+   1、前端要做的事越来越多
+   2、很多逻辑、需求相同
+   3、后期维护方便
+   4、MVC只是手段 最终还是为了实现模块化和复用
+二、实现MVC的困难
+	1、浏览器加载(string)->JIT编译可执行的代码
+	2、浏览器不一样，并发加载也不一样
+	3、所以依赖，要程序员自己来实现
+	4、JS利用原型继承做到继承，所以比较困难
+三、controller
+ 	1、一个控制器对应一个视图,不要试图复用controller
+ 	2、不要在controller中操作DOM
+ 	3、不要controller中格式化数据（指令），不要数据过滤（过滤器）
+ 	4、控制器不能互相调用（为了减少耦合），使用$scope传递方法
+四、Model
+五、view
+	$Scope
+六、小结：总结会发现angularJS是利用$scope是实现MVC的
+    找不到属性，就一直往上找到$rootScope
+    $scope是什么？
+    1、POJO（Plain Old JavaScript Object）JavaScript对象
+    2、$watch()、$apply()....
+    3、表达式的执行环境(作用域)
+    4、$scope和DOM平行的
+    5、只有一个$rootScope
+    6、scope可以传播事件,可以向上也可以向下
+    7、是angularJS的基础（MVC、双向数据绑定）
+
+  生命周期
+  	创建 -> 注册监控 -> 检测model的变化 ->dirty-check->销毁
+  	Creation -> Watcher registration -> Model Mutation -> Mutation observation -> Scope destruction
+
+七、双向数据绑定
+	demo5.1.html demo5.2.html demo5.3.html
