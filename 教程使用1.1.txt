@@ -36,3 +36,11 @@
 
 七、双向数据绑定
 	demo5.1.html demo5.2.html demo5.3.html
+
+八、指令
+	1、restrict:"EACM"
+	2、template、templateUrl、templateCache(类似MAP的存储方式)
+	3、replace
+	4、complie/link
+		(加载-编译（初始化dom）-链接（绑定事件和数据）)
+	5、scope

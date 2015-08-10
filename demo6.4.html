@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo6.4.html</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+		<syt4528>
+			<div>你好！</div>
+		</syt4528>
+	</div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript">
+
+		var myApp=angular.module("myApp",[]);
+		/*myApp.directive("syt4528",function(){
+			return {
+				restrict:"E",
+				replace:true,
+				template:"<div>hello angular!</div>"
+			}
+		});*/
+		myApp.directive("syt4528",function(){
+			return {
+				restrict:"E",
+				transclude:true,
+				template:"<div>hello angular!<p ng-transclude></p></div>"
+			}
+		})
+	</script>
+</body>
+</html>

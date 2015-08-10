@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="myApp" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo6.7.html</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<syt4528 strength>力量型</syt4528>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<syt4528 strength speed>力量型+敏捷型</syt4528>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<syt4528 strength speed light>力量型+敏捷型+发光型</syt4528>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript">
+
+		var myApp=angular.module("myApp",[]);
+
+		myApp.directive("syt4528",function(){
+			return {
+				scope:{}, //独立作用域
+				restrict:"E",
+				replace:true,
+				template:"<h2>hello angular!</h2>",
+				controller:function($scope){
+					$scope.abilities=[];
+					this.addStrength=function () {
+						$scope.abilities.push("strength");
+					}
+					this.addSpeed=function () {
+						$scope.abilities.push("speed");
+					}
+					this.addLight=function () {
+						$scope.abilities.push("light");
+					}
+				}, //暴露方法，给其其他指令使用
+				link:function(scope,element,attr){ 
+					element.addClass("btn btn-primary");
+					element.bind("mouseenter",function(){
+						console.log(scope.abilities);
+					});
+				}
+			}
+		}).directive("strength",function(){
+			return {
+				require:"^syt4528",
+				link:function(scope,element,attr,syt4528Ctrl){ 
+					syt4528Ctrl.addStrength();
+				}
+			}
+		}).directive("speed",function(){
+			return {
+				require:"^syt4528",
+				link:function(scope,element,attr,syt4528Ctrl){ 
+					syt4528Ctrl.addSpeed();
+				}
+			}
+		}).directive("light",function(){
+			return {
+				require:"^syt4528",
+				link:function(scope,element,attr,syt4528Ctrl){ 
+					syt4528Ctrl.addLight();
+				}
+			}
+		})
+	</script>
+</body>
+</html>
