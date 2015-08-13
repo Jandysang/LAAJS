@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo6.12.html</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+		<div ng-controller="myCtrl">
+		  Ctrl:
+		  <hr>
+		  <input type="text" ng-model='sangyoutao' />
+		  <hr>
+		  directive
+		  <hr>
+		  <syt4528 name="sangyoutao"></syt4528>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript">
+
+		var myApp=angular.module("myApp",[]);
+		myApp.controller("myCtrl",function($scope){
+			$scope.sangyoutao="桑友涛";
+		})
+		myApp.directive("syt4528",function(){
+			return {
+				restrict:"E",
+				scope:{
+					name:"="
+				},
+				template:"<input type='text' ng-model='name'>"
+
+				/*link:function(scope,element,attrs){
+					scope.name=attrs.name
+				}*/
+			}
+		});
+	</script>
+</body>
+</html>

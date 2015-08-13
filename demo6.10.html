@@ -2,27 +2,29 @@
 <html ng-app="myApp" >
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<title>AngularJS--demo6.8.html</title>
+	<title>AngularJS--demo6.10.html</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 </head>
 <body>
 	<div class="container">
-		<syt4528></syt4528>
-		<div syt4528></div>
-		<div class="syt4528"></div>
-		<!-- directive:syt4528 -->
-		<div></div>
+		<div ng-controller="myCtrl">
+			<syt4528 name="{{sangyoutao}}"></syt4528>
+		</div>
 	</div>
 	<script type="text/javascript" src="js/angular.js"></script>
 	<script type="text/javascript">
 
 		var myApp=angular.module("myApp",[]);
+		myApp.controller("myCtrl",function($scope){
+			$scope.sangyoutao="桑友涛";
+		})
 		myApp.directive("syt4528",function(){
 			return {
-				restrict:"EAMC",
-				//scope:{},
-				replace:true,
-				template:"<div><div><input type='text' ng-model='name' /></div><div>hello,{{name}}</div></div>"
+				restrict:"E",
+				template:"<div>{{sangyoutao}}</div>",
+				link:function(scope,element,attrs){
+					scope.name=attrs.name
+				}
 			}
 		});
 	</script>
