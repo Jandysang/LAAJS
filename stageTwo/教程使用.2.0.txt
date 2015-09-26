@@ -1,0 +1,26 @@
+一、回顾
+	1、什么angularJS
+	2、为什么要用angularJS
+	3、controller
+	4、model
+	5、view
+		5.1、$scope
+		5.2、双向数据绑定
+		5.3、指令
+
+二、provider
+	(1)、不要重复使用controller，使用service
+	(2)、service、factory、provider本质是相同
+	1、$http
+	2、service
+	3、$filter
+		(1)、currency(货币)
+		(2)、date(日期)
+		(3)、filter(自定义过滤)
+		(4)、json(json格式化)
+		(5)、limitTo
+		(6)、lowercase(转成小写)
+		(7)、number(数字)
+		(8)、orderBy(排序)
+		(9)、uppercase(转成大写)
+三、injecter

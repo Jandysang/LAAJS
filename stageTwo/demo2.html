@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo2.html</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+	<script type="text/javascript" src="../js/angular.js"></script>
+</head>
+<body>
+	<div ng-controller="loadDataCtrl">
+	<input type="text" ng-model="username"/>
+		<ul>
+			<li ng-repeat="user in users">
+				{{user.name}}
+			</li>
+		</ul>
+	</div>
+	
+	<script type="text/javascript">
+	var myApp=angular.module("myApp",[]);
+	myApp.factory("userListService",function($http){
+		var doRequest=function(username){
+			return $http({
+					method:"get",
+					url:"../data/data.json"
+				});
+		}
+		return {
+			userList:function(username){
+				return doRequest(username)
+			}
+		}
+	});
+	myApp.controller('loadDataCtrl',function($scope,$timeout,userListService){
+		var timeout;
+		$scope.$watch("username",function(newUserName){
+			if(newUserName){
+				if(timeout){
+					$timeout.cancel(timeout);
+				}
+				timeout=$timeout(function(){
+					userListService.userList(newUserName)
+					.success(function(data,status){
+						$scope.users=data;
+					});
+				},350);
+			}
+		})
+	});
+	</script>
+</body>
+</html>

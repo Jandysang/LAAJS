@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>AngularJS--demo1.html</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+	<script type="text/javascript" src="../js/angular.js"></script>
+</head>
+<body>
+	<div ng-controller="loadDataCtrl">
+		<ul>
+			<li ng-repeat="user in users">
+				{{user.name}}
+			</li>
+		</ul>
+	</div>
+	
+	<script type="text/javascript">
+	var myApp=angular.module("myApp",[]);
+	myApp.controller('loadDataCtrl',function($scope,$http){
+		$http({
+			method:"get",
+			url:"../data/data.json"
+		}).success(function(data,stauts,headers,config){
+			debugger;
+			console.log("success");
+			console.log(data);
+			$scope.users=data;
+		}).error(function(data,stauts,headers,config){
+			console.log("error");
+		});
+	});
+	</script>
+</body>
+</html>
